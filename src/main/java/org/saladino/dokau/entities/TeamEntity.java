@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Table @Entity @Getter @NoArgsConstructor
 public class TeamEntity extends BaseEntity {
 
@@ -13,7 +11,7 @@ public class TeamEntity extends BaseEntity {
     private String name;
 
     @ManyToOne @JoinColumn()
-    private UserEntity owner;
+    private UserEntity createdBy;
 
 
     public TeamEntity(String name) {
@@ -27,8 +25,8 @@ public class TeamEntity extends BaseEntity {
         this.name = name;
     }
 
-    public void setOwner(UserEntity owner) {
+    public void setCreatedBy(UserEntity createdBy) {
         this.commitUpdate();
-        this.owner = owner;
+        this.createdBy = createdBy;
     }
 }
