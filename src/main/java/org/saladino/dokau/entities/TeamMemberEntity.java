@@ -24,4 +24,10 @@ public class TeamMemberEntity extends BaseEntity {
         this.user = user;
         this.role = role;
     }
+
+
+    public void setRole(TeamMemberRole role) {
+        this.commitUpdate();
+        this.role = role;
+    }
 }
