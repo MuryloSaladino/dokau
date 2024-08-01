@@ -1,10 +1,11 @@
 package org.saladino.dokau.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table @Entity @Getter @NoArgsConstructor
+@Table @Entity @Getter @NoArgsConstructor @AllArgsConstructor
 public class UserEntity extends BaseEntity {
 
     @Column(unique=true)
@@ -45,5 +46,15 @@ public class UserEntity extends BaseEntity {
     public void setEmail(String email) {
         this.commitUpdate();
         this.email = email;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.commitUpdate();
+        this.admin = admin;
+    }
+
+    public void setUserDetails(UserDetailsEntity userDetails) {
+        this.commitUpdate();
+        this.userDetails = userDetails;
     }
 }
