@@ -41,7 +41,7 @@ public class LoginServiceDefault implements LoginService {
 
         UserEntity user = query.get();
 
-        if(!passwordEncoder.matches(user.getPassword(), payload.getPassword()))
+        if(!passwordEncoder.matches(payload.getPassword(), user.getPassword()))
             throw new UnauthorizedException("Wrong password");
 
         Map<String, Object> claims = new HashMap<>();
