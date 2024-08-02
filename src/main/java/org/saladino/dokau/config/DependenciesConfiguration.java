@@ -16,7 +16,7 @@ public class DependenciesConfiguration {
     JwtTokenManager jwtTokenManager() { return new JwtTokenManagerService(); }
 
     @Bean @Scope
-    BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
+    BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(11); }
 
 
     // SESSION BEANS
