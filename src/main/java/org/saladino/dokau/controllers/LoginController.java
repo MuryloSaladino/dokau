@@ -3,12 +3,10 @@ package org.saladino.dokau.controllers;
 import jakarta.validation.Valid;
 import org.saladino.dokau.dto.login.LoginPayload;
 import org.saladino.dokau.dto.login.LoginResponse;
+import org.saladino.dokau.interfaces.EmailSender;
 import org.saladino.dokau.interfaces.LoginService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController @RequestMapping("/api/login")
 public class LoginController {

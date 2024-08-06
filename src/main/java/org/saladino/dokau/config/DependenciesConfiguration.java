@@ -1,6 +1,8 @@
 package org.saladino.dokau.config;
 
+import org.saladino.dokau.interfaces.EmailSender;
 import org.saladino.dokau.interfaces.JwtTokenManager;
+import org.saladino.dokau.services.EmailService;
 import org.saladino.dokau.services.JwtTokenManagerService;
 import org.saladino.dokau.utility.UserSession;
 import org.springframework.context.annotation.*;
@@ -17,6 +19,9 @@ public class DependenciesConfiguration {
 
     @Bean @Scope
     BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(11); }
+
+    @Bean @Scope
+    EmailSender emailSender() { return new EmailService(); }
 
 
     // SESSION BEANS
