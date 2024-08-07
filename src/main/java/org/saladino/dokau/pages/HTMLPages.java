@@ -1,19 +1,15 @@
 package org.saladino.dokau.pages;
 
-import org.saladino.dokau.interfaces.JwtTokenManager;
-import org.springframework.stereotype.Component;
-
-@Component
 public class HTMLPages {
 
-    private final JwtTokenManager jwtTokenManager;
+    public static String confirmEmailPage(String token) {
 
-    public HTMLPages(JwtTokenManager jwtTokenManager) {
-        this.jwtTokenManager = jwtTokenManager;
-    }
-
-    public static String confirmEmailPage() {
-
-        return "";
+        return  "<html>" +
+                "    <body>" +
+                "        <h1>Dokau - One place for your project</h1>" +
+                "        <p>Welcome to dokau! We received your request to create an account, here's the link:</p>" +
+                "        <a href=\"" + token + "\">Register</a>" +
+                "    </body>" +
+                "</html>";
     }
 }
