@@ -1,4 +1,4 @@
-package org.saladino.dokau.dto.login;
+package org.saladino.dokau.dto.access;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
