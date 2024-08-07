@@ -2,8 +2,10 @@ package org.saladino.dokau.config;
 
 import org.saladino.dokau.interfaces.EmailSender;
 import org.saladino.dokau.interfaces.JwtTokenManager;
+import org.saladino.dokau.interfaces.RegisterService;
 import org.saladino.dokau.services.EmailService;
 import org.saladino.dokau.services.JwtTokenManagerService;
+import org.saladino.dokau.services.RegisterServiceDefault;
 import org.saladino.dokau.utility.UserSession;
 import org.springframework.context.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
