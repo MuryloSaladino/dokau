@@ -3,7 +3,7 @@ package org.saladino.dokau.data;
 import org.saladino.dokau.entities.UserDetailsEntity;
 import org.saladino.dokau.entities.UserEntity;
 import org.saladino.dokau.repositories.UserDetailsRepository;
-import org.saladino.dokau.repositories.UserEntityRepository;
+import org.saladino.dokau.repositories.UserRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,12 +15,12 @@ import java.sql.Timestamp;
 public class UsersDataLoader implements ApplicationRunner {
 
     private final BCryptPasswordEncoder encoder;
-    private final UserEntityRepository userRepository;
+    private final UserRepository userRepository;
     private final UserDetailsRepository userDetailsRepository;
 
     public UsersDataLoader(
             BCryptPasswordEncoder encoder,
-            UserEntityRepository userRepository,
+            UserRepository userRepository,
             UserDetailsRepository userDetailsRepository
     ) {
         this.encoder = encoder;
