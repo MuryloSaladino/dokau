@@ -1,7 +1,7 @@
 package org.saladino.dokau.services;
 
-import org.saladino.dokau.dto.login.LoginPayload;
-import org.saladino.dokau.dto.login.LoginResponse;
+import org.saladino.dokau.dto.access.LoginPayload;
+import org.saladino.dokau.dto.access.LoginResponse;
 import org.saladino.dokau.dto.users.UserEntityResponse;
 import org.saladino.dokau.entities.UserEntity;
 import org.saladino.dokau.exceptions.NotFoundException;
