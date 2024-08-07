@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity @Table @NoArgsConstructor @AllArgsConstructor
-public class RegisterEntity extends BaseEntity {
+public class PreRegisterEntity extends BaseEntity {
     @Column(unique = true)
     private String email;
 }

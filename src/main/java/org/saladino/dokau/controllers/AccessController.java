@@ -31,7 +31,7 @@ public class AccessController {
 
     @PostMapping("/register")
     public ResponseEntity<?> createResgister(@Email @RequestParam String email) {
-        registerService.register(email);
+        registerService.preRegister(email);
         registerService.sendConfirmationEmail(email);
         return ResponseEntity.noContent().build();
     }

@@ -8,7 +8,7 @@ import org.saladino.dokau.exceptions.NotFoundException;
 import org.saladino.dokau.exceptions.UnauthorizedException;
 import org.saladino.dokau.interfaces.JwtTokenManager;
 import org.saladino.dokau.interfaces.LoginService;
-import org.saladino.dokau.repositories.UserEntityRepository;
+import org.saladino.dokau.repositories.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,12 @@ import java.util.Map;
 @Service
 public class LoginServiceDefault implements LoginService {
 
-    private final UserEntityRepository userRepository;
+    private final UserRepository userRepository;
     private final JwtTokenManager jwtTokenManager;
     private final BCryptPasswordEncoder passwordEncoder;
 
     public LoginServiceDefault(
-            UserEntityRepository userRepository,
+            UserRepository userRepository,
             JwtTokenManager jwtTokenManager,
             BCryptPasswordEncoder passwordEncoder
     ) {
