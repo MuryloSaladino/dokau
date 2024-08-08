@@ -1,11 +1,14 @@
 package org.saladino.dokau.dto.access;
 
 import jakarta.validation.constraints.*;
+import lombok.Data;
+import lombok.Getter;
 import org.saladino.dokau.entities.UserDetailsEntity;
 import org.saladino.dokau.entities.UserEntity;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
+@Getter @Data
 public class RegisterPayload {
 
     @NotEmpty
@@ -13,7 +16,7 @@ public class RegisterPayload {
     private String username;
 
     @NotEmpty
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\\\d)(?=.*[@$!%*?&])[A-Za-z\\\\d@$!%*?&]{8,}$")
+    @Size(min = 8, max = 50)
     private String password;
 
     @NotEmpty
@@ -26,7 +29,7 @@ public class RegisterPayload {
 
     @NotNull
     @Past
-    private Timestamp birthdate;
+    private Date birthdate;
 
 
     public UserEntity getUser(String email) {
