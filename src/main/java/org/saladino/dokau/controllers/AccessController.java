@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import org.saladino.dokau.dto.access.LoginPayload;
 import org.saladino.dokau.dto.access.LoginResponse;
+import org.saladino.dokau.dto.access.RegisterPayload;
 import org.saladino.dokau.interfaces.LoginService;
 import org.saladino.dokau.interfaces.RegisterService;
 import org.springframework.http.ResponseEntity;
@@ -29,10 +30,19 @@ public class AccessController {
         return ResponseEntity.ok(loginService.login(payload));
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<?> createResgister(@Email @RequestParam String email) {
+    @GetMapping("/register")
+    public ResponseEntity<?> preresgister(@Email @RequestParam String email) {
         registerService.preRegister(email);
         registerService.sendConfirmationEmail(email);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(
+            @Valid @RequestBody RegisterPayload payload,
+            @RequestHeader("Authorization") String token
+    ) {
+        registerService.register(payload, token);
         return ResponseEntity.noContent().build();
     }
 }
