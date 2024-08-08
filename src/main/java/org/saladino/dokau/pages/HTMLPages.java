@@ -8,7 +8,7 @@ public class HTMLPages {
                 "    <body>" +
                 "        <h1>Dokau - One place for your project</h1>" +
                 "        <p>Welcome to dokau! We received your request to create an account, here's the link:</p>" +
-                "        <a href=\"" + token + "\">Register</a>" +
+                "        <a href=\"https://www.google.com.br?token=" + token + "\">Register</a>" +
                 "    </body>" +
                 "</html>";
     }
