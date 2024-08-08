@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.saladino.dokau.exceptions.UnauthorizedException;
 import org.saladino.dokau.interfaces.JwtTokenManager;
 import org.saladino.dokau.utility.UserSession;
 import org.springframework.http.MediaType;
@@ -41,12 +42,11 @@ public class ValidateTokenFilter extends OncePerRequestFilter {
                 userSession.setId(Long.parseLong(claims.getId()));
                 userSession.setAdmin(claims.get("admin", Boolean.class));
             }
-            catch (RuntimeException e) {
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+            catch (UnauthorizedException e) {
+                userSession.setId(null);
+                userSession.setAdmin(false);
             }
         }
-
         filterChain.doFilter(request, response);
     }
 }
