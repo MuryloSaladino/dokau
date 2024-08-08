@@ -10,13 +10,13 @@ public class UserEntityResponse {
     public String username;
     public String email;
     public String name;
-    public Timestamp birthDate;
+    public String birthDate;
 
     public UserEntityResponse(UserEntity user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.name = user.getUserDetails().getFirstName() + " " + user.getUserDetails().getLastName();
-        this.birthDate = user.getUserDetails().getBirthDate();
+        this.birthDate = user.getUserDetails().getBirthDate().toString();
     }
 }
