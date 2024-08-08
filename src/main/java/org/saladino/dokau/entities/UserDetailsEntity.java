@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Table @Entity @Getter @NoArgsConstructor
 public class UserDetailsEntity extends BaseEntity {
@@ -19,10 +20,10 @@ public class UserDetailsEntity extends BaseEntity {
     private Timestamp birthDate;
 
 
-    public UserDetailsEntity(String firstName, String lastName, Timestamp birthDate) {
+    public UserDetailsEntity(String firstName, String lastName, Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
+        this.birthDate = new Timestamp(birthDate.getTime());
     }
 
 
