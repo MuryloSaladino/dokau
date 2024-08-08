@@ -9,5 +9,4 @@ import java.util.Optional;
 @Repository
 public interface PreRegisterRepository extends CrudRepository<PreRegisterEntity, Long> {
     Optional<PreRegisterEntity> findByEmail(String email);
-    void deleteByEmail(String email);
 }
