@@ -6,5 +6,5 @@ import org.saladino.dokau.dto.users.UserEntityResponse;
 public interface RegisterService {
     void preRegister(String email);
     void sendConfirmationEmail(String email);
-    UserEntityResponse register(RegisterPayload payload, String email);
+    void register(RegisterPayload payload, String token);
 }
